@@ -9,7 +9,7 @@ def get_text_messages(tg, message):
     ms_text = message.text
 
     if ms_text == "Собака":
-        tg.send_photo(chat_id, photo=get_dog())
+        tg.send_message(chat_id, "Собака больше не работает")
 
     elif ms_text == "Лиса":
         tg.send_photo(message.chat.id, get_fox())
@@ -64,22 +64,22 @@ def get_weather():
         text = res.text
     return text
 
+# Перестал переваривать, фиг знает
+# def get_dog():
+#     """ Рандомная собака """
+#     url = None
+#     contents = requests.get('https://random.dog/woof.json').json()
+#     image_url = contents['url']
 
-def get_dog():
-    """ Рандомная собака """
-    url = None
-    contents = requests.get('https://random.dog/woof.json').json()
-    image_url = contents['url']
+#     # вроде тг все и так переварит, но пускай
+#     allowed_extension = ['jpg', 'jpeg', 'png']
+#     file_extension = ''
 
-    # вроде тг все и так переварит, но пускай
-    allowed_extension = ['jpg', 'jpeg', 'png']
-    file_extension = ''
+#     while file_extension not in allowed_extension:
+#         url = image_url
+#         file_extension = re.search("([^.]*)$", url).group(1).lower()
 
-    while file_extension not in allowed_extension:
-        url = image_url
-        file_extension = re.search("([^.]*)$", url).group(1).lower()
-
-    return url
+#     return url
 
 
 def get_fox():
