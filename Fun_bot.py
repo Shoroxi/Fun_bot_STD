@@ -7,6 +7,7 @@ import Discord
 import Anime
 import Games
 import Wikis
+import Hangman
 
 try:
     from loadconfig import __telegramtoken__, __tg_group_id__, __my_id__
