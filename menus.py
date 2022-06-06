@@ -95,11 +95,26 @@ def goto_menu(tg, chat_id, name_menu):
         return target_menu
     else:
         return None
+    
+categories_list = ["Животные", "Еда", "Дом", "Одежда", "Школа", "Музыка", "Тело", "Спорт", "Компьютер", "Природа", "Профессии"]
+ABC = 'А Б В Г Д Е Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я 🚫️'.split()
+letters = list(ABC)
 
+categories_list_turp = tuple(categories_list)
+dictionary = tuple(letters)
 
 m_main = Menu("Главное меню", buttons=["Развлечения","Аниме",'Игры','Wiki','Помощь'])
-m_games = Menu("Игры", buttons=["Кости",'Выход'], parent=m_main, module="Games")
+
+m_games = Menu("Игры", buttons=["Кости","Висилица",'Выход'], parent=m_main, module="Games")
 m_game_dc = Menu("Кости", buttons=["Бросить кости",'Выход'], parent=m_games, module="Games")
+
+m_hangman = Menu("Висилица", buttons=['Играть', 'Выход'], parent=m_main, module="Hangman")
+m_hangman_theme = Menu("Играть", buttons=categories_list, parent=m_hangman, module="Hangman")
+# Тут происходит Цирк с Menu
+m_hangman_start = Menu(categories_list_turp, buttons="Выбрать букву", parent=m_hangman_theme, module="Hangman")
+m_hangman_abc = Menu("Выбрать букву", buttons=letters, parent=m_hangman_start, module="Hangman")
+m_hangman_abc2 = Menu(dictionary, buttons=letters, parent=m_hangman_start, module="Hangman")
+
 m_fun = Menu("Развлечения", buttons=["Собака",'Лиса','Книга','Погода','Выход'], parent=m_main, module="fun")
 m_anime = Menu("Аниме", buttons=['Поиск аниме', 'Поиск манги', 'Pat','Nep','Выход'], parent=m_main, module="Anime")
 m_wiki = Menu("Wiki", buttons=['Поиск значения слова', 'Выход'], parent=m_main, module="Wikis")
