@@ -2,7 +2,7 @@ __telegramtoken__ = "5201655115:AAFbPgpEaPMThZCUETrvHZiHjqqnAbx1MoI"
 __tg_group_id__ = -590384061
 __my_id__ = 818019160 #@Shorox
 
-__discordtoken__ = 'OTc3MTA3MzczMjQ2MjYzMzE2.G8mNsS.qFADUcNhejFUWNMrkVuaMSr9qJRFHpoGleJr90'
+__discordtoken__ = '123'
 __prefix__ = '~'
 
 __botserverid__ = 726039316257570855
